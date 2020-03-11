@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmFinanceiraPessoalWeb", "AdmFinanceiraPessoalWeb\AdmFinanceiraPessoalWeb.csproj", "{119D1ECF-776C-451A-9A75-723AAB0F6DA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdmFinanceiraPessoalCore", "AdmFinanceiraPessoalCore\AdmFinanceiraPessoalCore.csproj", "{C74BAB26-179D-4A70-ABC5-87399D9C7885}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{119D1ECF-776C-451A-9A75-723AAB0F6DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119D1ECF-776C-451A-9A75-723AAB0F6DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119D1ECF-776C-451A-9A75-723AAB0F6DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119D1ECF-776C-451A-9A75-723AAB0F6DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C74BAB26-179D-4A70-ABC5-87399D9C7885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74BAB26-179D-4A70-ABC5-87399D9C7885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74BAB26-179D-4A70-ABC5-87399D9C7885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74BAB26-179D-4A70-ABC5-87399D9C7885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F254C2D-3928-4362-A917-618F1F6192B3}
+	EndGlobalSection
+EndGlobal
