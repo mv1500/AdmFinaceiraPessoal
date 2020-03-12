@@ -46,6 +46,20 @@ namespace AdmFinanceiraPessoalWeb.Controllers
             }
         }
 
+        public JsonResult SalvarContaMes(ContaMes contaMes)
+        {
+            try
+            {               
+                _contaMesRepository.AddOrUpdate(contaMes);
+
+                return Json(conta);
+            }
+            catch (Exception ex)
+            {
+                return RetrieveError("Serviço Indisponivel.");
+            }
+        }
+
         protected JsonResult RetrieveError(string msg)
         {
             Response.StatusCode = (int)HttpStatusCode.InternalServerError;

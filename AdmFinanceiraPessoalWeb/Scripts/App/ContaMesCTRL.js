@@ -9,9 +9,7 @@
 
         $scope.viewdata.filtro = {
 
-        };
-
-             
+        };             
 
         $scope.getViewData = function () {
             $http({
@@ -25,6 +23,42 @@
         }
 
         $scope.getViewData();
+
+        $scope.setData = function () {
+
+            var data = new Date();
+
+            data.setMonth(data.getMonth() + 1);
+
+            data.setDate(1);
+
+            $scope.viewdata.conta = {
+                DataPagamento: data
+            };                    
+        }              
+
+        $scope.validaForm = function (form) {
+            if (form.validate()) {
+                return true;
+            }
+
+            return false;
+        }
+
+        $scope.salvarConta = function () {
+
+            $http({
+                method: "POST",
+                url: "/ContaMes/SalvarConta",
+                data: $scope.viewdata.conta
+            }).then(function successCallback(response) {
+                $("#formCadConta").modal("hide");
+                $scope.viewdata.conta = {};
+            }, function errorCallback(response) {
+
+            });
+        }
+
 
 
     }
