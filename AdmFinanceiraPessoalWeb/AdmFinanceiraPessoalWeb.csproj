@@ -355,6 +355,7 @@
     <Content Include="Scripts\angular\plugins\dataTables\Scroller-1.4.2\js\dataTables.scroller.min.js" />
     <Content Include="Scripts\angular\plugins\datetime.js" />
     <Content Include="Scripts\App\App.js" />
+    <Content Include="Scripts\App\config.js" />
     <Content Include="Scripts\App\ContaMesCTRL.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1509,6 +1510,8 @@
     <Content Include="Scripts\lib\leaflet\leaflet.js.map" />
     <Content Include="Scripts\plugins\dataTables\Buttons-1.2.1\css\common.scss" />
     <Content Include="Scripts\plugins\dataTables\Buttons-1.2.1\css\mixins.scss" />
+    <Content Include="Views\ContasMes\_CadContaMes.cshtml" />
+    <Content Include="Views\ContasMes\_CadPagamentoMes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,6 +14,8 @@ namespace AdmFinanceiraPessoalCore.Modulos.Repositories
 
         IList<ContaMes> FindPorMes(DateTime dataConsulta);
 
+        IList<ContaMes> FindMensal(DateTime dataConsulta);
+
         decimal FindValor(ContaMes contaMes);
 
     }
@@ -58,6 +60,15 @@ namespace AdmFinanceiraPessoalCore.Modulos.Repositories
                        .List();
 
             return lista;
+        }
+
+        public IList<ContaMes> FindMensal(DateTime dataConsulta)
+        {
+            var query = Session.QueryOver<ContaMes>()
+                        .Where(x => x.Periodicidade == "Mensal")
+                        .And(x => x.DataPagamento.Month == dataConsulta.Month);
+
+            return query.List();
         }
 
         public decimal FindValor(ContaMes contaMes)

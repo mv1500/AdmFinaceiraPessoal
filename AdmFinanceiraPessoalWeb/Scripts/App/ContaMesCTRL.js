@@ -6,7 +6,7 @@
     function ContaController($scope, $http, $filter, datetime, toastr, $window) {
 
         $scope.viewdata = {};
-
+        
         $scope.viewdata.filtro = {
 
         };             
@@ -16,10 +16,9 @@
                 method: "POST",
                 url: "/ContasMes/GetViewData"
             }).then(function success(response) {
-
-                alert(response.data);
-                $scope.viewdata.contas = response.data;                
-            });
+                $scope.viewdata.contas = response.data;
+                $scope.setData();
+                            });
         }
 
         $scope.getViewData();
@@ -30,7 +29,7 @@
 
             data.setMonth(data.getMonth() + 1);
 
-            data.setDate(1);
+            //data.setDate(1);
 
             $scope.viewdata.conta = {
                 DataPagamento: data
@@ -49,17 +48,88 @@
 
             $http({
                 method: "POST",
-                url: "/ContaMes/SalvarConta",
+                url: "/ContasMes/SalvarContaMes",
                 data: $scope.viewdata.conta
             }).then(function successCallback(response) {
                 $("#formCadConta").modal("hide");
                 $scope.viewdata.conta = {};
+                $scope.getViewData();
+                toastr.success("Conta cadastrada.", "Sucesso!");
             }, function errorCallback(response) {
-
+                toastr.error("Serviço indisponível no momento.", "Atenção");
             });
         }
 
+        $scope.salvarPagamento = function () {
 
+            $scope.viewdata.pagamento.IdContaMes = $scope.viewdata.conta;
+
+            $http({
+                method: "POST",
+                url: "/ContasMes/Pagar",
+                data: $scope.viewdata.pagamento
+            }).then(function successCallback(response) {               
+                $("#formCadPagamento").modal("hide");
+                $scope.viewdata.pagamento = {};
+                $scope.viewdata.conta = {};
+                $scope.getViewData();
+                toastr.success("Pagamento cadastrado.", "Sucesso!");  
+            }, function errorCallback(response) {
+
+            });
+        }         
+
+        $scope.excluirConta = function (item) {
+
+            bootbox.confirm({
+                size: "small",
+                title: "Atenção",
+                message: "Confirmar exclusão?",
+                callback: function (result) {
+                    if (!result) return;
+                    $http({
+                        method: "POST",
+                        url: "/Conta/ExcluirConta",
+                        data: item
+                    }).then(function successCallback(response) {                       
+                        $scope.viewdata.conta = {};                     
+                        $scope.getViewData();
+                        toastr.success("Conta excluida.", "Sucesso!");
+
+                    }, function errorCallback(response) {
+                        toastr.error("Serviço indisponível no momento.", "Atenção");
+                    });
+                }
+            });
+
+        }
+
+        $scope.modalCadastrarConta = function () {
+
+            $("#formCadConta").modal("show");
+
+        }
+
+        $scope.modalCadastrarPagamento = function (item) {
+
+            $("#formCadPagamento").modal("show");
+
+            dateCon = $filter("dateFilter")(item.DataPagamento, "dd/MM/yyyy");
+
+            $scope.viewdata.conta = angular.copy(item);
+            $scope.viewdata.conta.DataPagamento = dateCon;
+          
+        }
+
+        $scope.editarCon = function (item) {
+
+            $("#formCadConta").modal("show");
+                        
+            dateCon = $filter("dateFilter")(item.DataPagamento, "dd/MM/yyyy");
+
+            $scope.viewdata.conta = angular.copy(item);
+            $scope.viewdata.conta.DataPagamento = dateCon;
+        }
 
     }
 
