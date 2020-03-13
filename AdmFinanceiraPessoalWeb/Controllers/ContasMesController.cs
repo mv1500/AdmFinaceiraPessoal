@@ -1,4 +1,5 @@
 ﻿using AdmFinanceiraPessoalCore.Domain.Controller;
+using AdmFinanceiraPessoalCore.Domain.Model;
 using AdmFinanceiraPessoalCore.Modulos;
 using AdmFinanceiraPessoalCore.Modulos.Repositories;
 using NHibernate;
@@ -34,7 +35,7 @@ namespace AdmFinanceiraPessoalWeb.Controllers
         public JsonResult GetViewData()
         {
             try
-            {                
+            {
                 var date = DateTime.Now;
 
                 var list = _contaMesRepository.FindPorMes(date);

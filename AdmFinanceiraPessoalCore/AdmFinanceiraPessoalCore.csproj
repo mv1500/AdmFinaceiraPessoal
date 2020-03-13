@@ -88,6 +88,7 @@
     <Compile Include="DefaultContainer.cs" />
     <Compile Include="Domain\Controller\IAdmFin.cs" />
     <Compile Include="Domain\Model\IIdentifiable.cs" />
+    <Compile Include="Domain\Model\Periodo.cs" />
     <Compile Include="Domain\Repositories\DefaultRepository.cs" />
     <Compile Include="Domain\Repositories\ICrudRepository.cs" />
     <Compile Include="Domain\Repositories\IRepository.cs" />
@@ -96,9 +97,12 @@
     <Compile Include="Modulos\ContaMes.cs" />
     <Compile Include="Modulos\Map\ContaMesMap.cs" />
     <Compile Include="Modulos\Map\PagamentoContaMesMap.cs" />
+    <Compile Include="Modulos\Map\TarefaMap.cs" />
     <Compile Include="Modulos\PagamentoContaMes.cs" />
     <Compile Include="Modulos\Repositories\ContaMesRepository.cs" />
     <Compile Include="Modulos\Repositories\PagamentoContaMesRepository.cs" />
+    <Compile Include="Modulos\Repositories\TarefaRepository.cs" />
+    <Compile Include="Modulos\Tarefa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
