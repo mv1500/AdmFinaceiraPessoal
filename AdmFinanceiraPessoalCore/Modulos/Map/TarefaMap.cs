@@ -27,7 +27,17 @@ namespace AdmFinanceiraPessoalCore.Modulos.Map
 
             Property(x => x.DuracaoEstimada, c => c.Column("DuracaoEstimada"));
 
-            Property(x => x.Status, c => c.Column("Status"));
+            Bag(
+             x => x.Status,
+             map =>
+             {
+                 map.Lazy(CollectionLazy.NoLazy);
+                 map.Fetch(CollectionFetchMode.Select);
+                 map.Cascade(Cascade.All);
+                 map.Key(k => k.Column("IdTarefa"));
+             },
+             rel => rel.OneToMany()
+            );
 
         }
     }

@@ -19,6 +19,6 @@ namespace AdmFinanceiraPessoalCore.Modulos
 
         public virtual DateTime DuracaoEstimada { get; set; }
 
-        public virtual string Status { get; set; }
+        public virtual IList<StatusTarefa> Status { get; set; }
     }
 }

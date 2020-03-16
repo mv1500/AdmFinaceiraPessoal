@@ -148,6 +148,13 @@ namespace AdmFinanceiraPessoalWeb
 
             #endregion
 
+          #region Modulo Tarefa
+
+            bundles.Add(new ScriptBundle("~/bundles/tarefa").Include(
+                "~/Scripts/app/TarefaCTRL.js"));
+
+            #endregion
+
           
 
         }

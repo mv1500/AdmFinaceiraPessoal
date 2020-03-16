@@ -102,6 +102,7 @@
     <Compile Include="Modulos\Repositories\ContaMesRepository.cs" />
     <Compile Include="Modulos\Repositories\PagamentoContaMesRepository.cs" />
     <Compile Include="Modulos\Repositories\TarefaRepository.cs" />
+    <Compile Include="Modulos\StatusTarefa.cs" />
     <Compile Include="Modulos\Tarefa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
