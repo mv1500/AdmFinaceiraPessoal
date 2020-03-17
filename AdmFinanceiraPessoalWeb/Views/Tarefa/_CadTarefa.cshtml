@@ -27,19 +27,19 @@
                             <label>Prioridade</label>
                             <input type="number" class="form-control required" name="Valor" ng-model="viewdata.tarefa.Prioridade" />
                         </div>
-                        <div class="form-group col-sm-6 col-md-6 col-lg-6" ng-show="viewdata.tarefa.Status">
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6">
+                            <label>Duração</label>
+                            <input type="time" class="form-control required" placeholder="HH:mm" name="Duracao" ng-model="viewdata.tarefa.DuracaoEstimada" />
+                        </div>                        
+                    </div>
+                    <div class="row" ng-show="viewdata.tarefa.Status">
+                        <div class="form-group col-sm-6 col-md-6 col-lg-6">
                             <label>Duração</label>
                             <select placeholder="Selecione o dono da conta..." name="Comprador" id="Comprador" class="form-control" ng-model="viewdata.tarefa.Status">
                                 <option value="">---Selecione---</option>
                                 <option selected value="Nova">Nova</option>
                                 <option value="Concluida">Concluida</option>
                             </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-sm-6 col-md-6 col-lg-6">
-                            <label>Duração</label>
-                            <input type="time" class="form-control required"  placeholder="HH:mm" name="Duracao" ng-model="viewdata.tarefa.DuracaoEstimada" />
                         </div>
                     </div>
                     <div class="row">
