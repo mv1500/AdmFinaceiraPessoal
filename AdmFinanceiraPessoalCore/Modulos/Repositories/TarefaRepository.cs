@@ -15,7 +15,7 @@ namespace AdmFinanceiraPessoalCore.Modulos.Repositories
 
         IList<Tarefa> FindPorSemana(DateTime dataConsulta);
 
-        IList<Tarefa> FindSemanaAtual();
+        IList<Tarefa> FindSemanaAtual(Periodo periodo);
 
     }
     public class TarefaRepository : DefaultRepository<Tarefa, long>, ITarefaRepository
@@ -59,10 +59,8 @@ namespace AdmFinanceiraPessoalCore.Modulos.Repositories
             return lista;
         }
 
-        public IList<Tarefa> FindSemanaAtual()
+        public IList<Tarefa> FindSemanaAtual(Periodo periodo)
         {
-            var periodo = Periodo.SemanaAtual();
-
             var lista = Session.QueryOver<Tarefa>()
                     .WhereRestrictionOn(x => x.DtFim)
                     .IsBetween(periodo.Inicio)

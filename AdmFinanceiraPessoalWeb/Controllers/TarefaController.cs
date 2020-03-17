@@ -1,4 +1,5 @@
 ﻿using AdmFinanceiraPessoalCore.Domain.Controller;
+using AdmFinanceiraPessoalCore.Domain.Model;
 using AdmFinanceiraPessoalCore.Modulos;
 using AdmFinanceiraPessoalCore.Modulos.Repositories;
 using NHibernate;
@@ -31,7 +32,9 @@ namespace AdmFinanceiraPessoalWeb.Controllers
         {
             try
             {
-                var list = _tarefaRepository.FindAll();
+                var periodo = Periodo.SemanaAtual();
+
+                var list = _tarefaRepository.FindSemanaAtual(periodo);
 
                 return Json(list);
             }
@@ -48,7 +51,7 @@ namespace AdmFinanceiraPessoalWeb.Controllers
                 if (string.IsNullOrEmpty(tarefa.Status))
                 {
                     tarefa.Status = "Nova";
-                }                
+                }
 
                 _tarefaRepository.AddOrUpdate(tarefa);
 

@@ -32,9 +32,9 @@ namespace AdmFinanceiraPessoalWeb
 
             ((DefaultContainer)_container).SetupForWeb();
 
-            //_container.Register(
-            //    Component.For<DataService>()
-            //    );
+            _container.Register(
+                Component.For<DataService>()
+                );
 
             _container.Install(new WindsorControllerInstaller());
             var windsorControllerFactory = new WindsorControllerFactory(_container);

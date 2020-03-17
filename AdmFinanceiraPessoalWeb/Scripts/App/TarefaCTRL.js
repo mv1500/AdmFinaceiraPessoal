@@ -27,7 +27,7 @@
 
             var data = new Date();
 
-            data.setMonth(data.getMonth() + 1);
+            data.setDate(data.getDate() + 1);
 
             //data.setDate(1);
 
@@ -54,7 +54,7 @@
                 $("#formCadTarefa").modal("hide");
                 $scope.viewdata.tarefa = {};
                 $scope.getViewData();
-                toastr.success("Conta cadastrada.", "Sucesso!");
+                toastr.success("Tarefa cadastrada.", "Sucesso!");
             }, function errorCallback(response) {
                 toastr.error("Serviço indisponível no momento.", "Atenção");
             });
@@ -99,7 +99,7 @@
                     }).then(function successCallback(response) {                       
                         $scope.viewdata.tarefa = {};                     
                         $scope.getViewData();
-                        toastr.success("Conta excluida.", "Sucesso!");
+                        toastr.success("Tarefa excluida.", "Sucesso!");
 
                     }, function errorCallback(response) {
                         toastr.error("Serviço indisponível no momento.", "Atenção");
@@ -120,13 +120,12 @@
             $("#formCadTarefa").modal("show");
                         
             dateTar = $filter("dateFilter")(item.DtFim, "dd/MM/yyyy");
-            timeDur = $filter("dateFilter")(item.DuracaoEstimada, "HH:mm");
+            timeDur = $filter("dateFilter")(item.DuracaoEstimada, "HH:mm:ss");
 
             $scope.viewdata.tarefa = angular.copy(item);
             $scope.viewdata.tarefa.DtFim = dateTar;
             $scope.viewdata.tarefa.DuracaoEstimada = timeDur;
         }
-
     }
 
     angular
